@@ -8,7 +8,7 @@ const Home = () => {
   const [priceFilter, setPriceFilter] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
 
-  const apiUrl = process.env.REACT_APP_API_URL;
+  // const apiUrl = process.env.REACT_APP_API_URL;
 
   // Function to fetch products with or without a query
   const fetchProducts = useCallback(async () => {
@@ -17,7 +17,7 @@ const Home = () => {
     if (priceFilter) queryParameters.push(`price=${encodeURIComponent(priceFilter)}`);
     if (categoryFilter) queryParameters.push(`category=${encodeURIComponent(categoryFilter)}`);
 
-    const url = `${apiUrl}/api/search?${queryParameters.join('&')}`;
+    const url = `/api/search?${queryParameters.join('&')}`;
 
     try {
       // const apiUrl = process.env.REACT_APP_API_URL; // Get API URL from environment variables
@@ -38,7 +38,7 @@ const Home = () => {
       setResults([]);
       setNoResults(true);
     }
-  },[apiUrl, searchQuery, priceFilter, categoryFilter]);
+  },[searchQuery, priceFilter, categoryFilter]);
 
   // Load all products initially
   useEffect(() => {
