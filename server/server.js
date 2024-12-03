@@ -38,6 +38,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
+
 // should be unneccesary
 // const port = process.env.PORT || 3001;
 
@@ -140,7 +141,7 @@ app.get('/api/profile', async (req, res) => {
 }) */
 
 // Catch-all handler to serve a single-page application
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 
